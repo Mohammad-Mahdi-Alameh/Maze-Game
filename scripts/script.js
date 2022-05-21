@@ -95,6 +95,8 @@ window.addEventListener("load", function(){
     }
 
     ///reset wall color back to normal
+
+
     function resetWalls() {
 
         for (i = 0; i < lose_div.length - 1; i++) {
@@ -176,6 +178,8 @@ window.addEventListener("load", function(){
         cheating_detector_div.removeEventListener("mouseleave", CheatDetected);
 
     }
+
+
     //if user leaves the "game" div (the main div)
 
     function CheatDetected() {
