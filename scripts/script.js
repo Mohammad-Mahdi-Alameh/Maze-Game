@@ -76,6 +76,7 @@ window.addEventListener("load", function(){
 
         activateCheatDetector();
 
+        activateResetButton();
 
     }
 
@@ -185,11 +186,30 @@ window.addEventListener("load", function(){
 
         deactivateEndDiv();
 
-
+        deactivateResetButton();
 
         endGame();
 
     }
 
+    function activateResetButton() {
+
+        reset_button.addEventListener("click", resetScore);
+
+    }
+
+    function deactivateResetButton() {
+
+        reset_button.removeEventListener("click", resetScore);
+
+    }
+
+    function resetScore() {
+
+        score = 0;
+
+        status.innerHTML = "Your score is reset to 0 !";
+
+    }
 
 });
