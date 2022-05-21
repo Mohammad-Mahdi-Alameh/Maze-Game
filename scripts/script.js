@@ -123,7 +123,20 @@ window.addEventListener("load", function(){
 
     }
 
+    function lose() {
 
+        colorWalls();
+
+        manageScore(-10);
+
+        displayStatus("You Lost ! 10 points were deducted !");
+
+        deactivateWalls();
+
+        deactivateEndDiv();
+
+
+    }
 
     function manageScore(value) {
 
