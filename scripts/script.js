@@ -13,8 +13,6 @@ window.addEventListener("load", function(){
 
     let status = document.getElementById("status");
 
-    let reset_button = document.createElement("button");
-
     let i;
 
     var score = 0;  //global variables
@@ -63,6 +61,10 @@ window.addEventListener("load", function(){
 
         activateEndDiv();
 
+        activateCheatDetector();
+
+
+
     }
 
     function win() {
@@ -80,7 +82,6 @@ window.addEventListener("load", function(){
     }
 
     ///reset wall color back to normal
-
     function resetWalls() {
 
         for (i = 0; i < lose_div.length - 1; i++) {
@@ -151,4 +152,30 @@ window.addEventListener("load", function(){
 
     }
 
-   });
+    function activateCheatDetector() {
+
+        cheating_detector_div.addEventListener("mouseleave", CheatDetected);
+
+    }
+
+    function deactivateCheatDetector() {
+
+        cheating_detector_div.removeEventListener("mouseleave", CheatDetected);
+
+    }
+    //if user leaves the "game" div (the main div)
+
+    function CheatDetected() {
+
+        status.innerHTML = "Very smart move but cheating isn't allowed in the bootcamp so unfortunately YOU ARE TERMINATED FROM THE BOOTCAMP AND YOU ARE NOT ALLOWED TO PLAY ANYMORE!!!! ";
+
+        deactivateWalls();
+
+        deactivateEndDiv();
+
+        endGame();
+
+    }
+
+
+});
