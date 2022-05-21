@@ -15,7 +15,6 @@ window.addEventListener("load", function(){
 
     let i;
 
-    var score = 0;  //global variables
 
 
 /////Main
@@ -51,6 +50,30 @@ window.addEventListener("load", function(){
         end_div.removeEventListener("mouseover", win);
 
     }
+
+
+
+    ///reset wall color back to normal
+    function resetWalls() {
+
+        for (i = 0; i < lose_div.length - 1; i++) {
+
+            lose_div[i].style.backgroundColor = "#eeeeee";
+
+        }
+
+    }
+
+    function colorWalls() {
+
+        for (i = 0; i < lose_div.length - 1; i++) {
+
+            lose_div[i].style.backgroundColor = "red";
+
+        }
+
+    }
+
 
 
     });
