@@ -13,6 +13,19 @@ window.addEventListener("load", function(){
 
     let status = document.getElementById("status");
 
+    let reset_button = document.createElement("button");
+
+    reset_button.innerHTML = "Reset Score";
+
+    document.body.appendChild(reset_button);
+
+    reset_button.style.position = "absolute";
+
+    reset_button.style.left = "50%";
+
+    reset_button.style.transform = "translateX(-50%)";
+
+
     let i;
 
     var score = 0;  //global variables
@@ -62,7 +75,6 @@ window.addEventListener("load", function(){
         activateEndDiv();
 
         activateCheatDetector();
-
 
 
     }
@@ -172,6 +184,8 @@ window.addEventListener("load", function(){
         deactivateWalls();
 
         deactivateEndDiv();
+
+
 
         endGame();
 
