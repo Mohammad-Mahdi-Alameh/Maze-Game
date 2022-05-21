@@ -9,11 +9,6 @@ window.addEventListener("load", function(){
 
     let end_div = document.getElementById("end");
 
-    let cheating_detector_div = document.getElementById("game");
-
-    let status = document.getElementById("status");
-
-    let i;
 
 
 
@@ -53,6 +48,7 @@ window.addEventListener("load", function(){
 
 
 
+
     ///reset wall color back to normal
     function resetWalls() {
 
@@ -74,6 +70,25 @@ window.addEventListener("load", function(){
 
     }
 
+    ////activate borders of walls
 
+    function activateWalls() {
+
+        for (i = 0; i < lose_div.length - 1; i++) {
+
+            lose_div[i].addEventListener("mouseover", lose);
+
+        }
+    }
+
+    function deactivateWalls() {
+
+        for (i = 0; i < lose_div.length - 1; i++) {
+
+            lose_div[i].removeEventListener("mouseover", lose);
+
+        }
+
+    }
 
     });
