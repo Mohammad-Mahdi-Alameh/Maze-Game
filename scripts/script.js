@@ -67,6 +67,19 @@ window.addEventListener("load", function(){
 
 
 
+    function win() {
+
+        manageScore(5);
+
+        displayStatus("You Won ! You gained 5 points bravo !");
+
+        deactivateWalls();
+
+        deactivateEndDiv();
+
+
+
+    }
 
     ///reset wall color back to normal
     function resetWalls() {
@@ -124,6 +137,7 @@ window.addEventListener("load", function(){
         status.innerHTML = message + " Your Score is : " + score;
 
     }
+
 
 
 });
