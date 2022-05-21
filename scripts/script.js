@@ -15,17 +15,6 @@ window.addEventListener("load", function(){
 
     let reset_button = document.createElement("button");
 
-    reset_button.innerHTML = "Reset Score";
-
-    document.body.appendChild(reset_button);
-
-    reset_button.style.position = "absolute";
-
-    reset_button.style.left = "50%";
-
-    reset_button.style.transform = "translateX(-50%)";
-
-
     let i;
 
     var score = 0;  //global variables
@@ -66,6 +55,15 @@ window.addEventListener("load", function(){
     }
 
 
+    function start() {
+
+        resetWalls();
+
+        activateWalls();
+
+        activateEndDiv();
+
+    }
 
     function win() {
 
@@ -77,11 +75,12 @@ window.addEventListener("load", function(){
 
         deactivateEndDiv();
 
-
+        deactivateCheatDetector();
 
     }
 
     ///reset wall color back to normal
+
     function resetWalls() {
 
         for (i = 0; i < lose_div.length - 1; i++) {
@@ -135,6 +134,7 @@ window.addEventListener("load", function(){
 
         deactivateEndDiv();
 
+        deactivateCheatDetector();
 
     }
 
@@ -151,6 +151,4 @@ window.addEventListener("load", function(){
 
     }
 
-
-
-});
+   });
