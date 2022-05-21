@@ -9,7 +9,26 @@ window.addEventListener("load", function(){
 
     let end_div = document.getElementById("end");
 
+    let cheating_detector_div = document.getElementById("game");
 
+    let status = document.getElementById("status");
+
+    let reset_button = document.createElement("button");
+
+    reset_button.innerHTML = "Reset Score";
+
+    document.body.appendChild(reset_button);
+
+    reset_button.style.position = "absolute";
+
+    reset_button.style.left = "50%";
+
+    reset_button.style.transform = "translateX(-50%)";
+
+
+    let i;
+
+    var score = 0;  //global variables
 
 
 /////Main
@@ -91,4 +110,20 @@ window.addEventListener("load", function(){
 
     }
 
-    });
+
+
+    function manageScore(value) {
+
+        score = score + value;
+
+    }
+
+    function displayStatus(message) {
+
+
+        status.innerHTML = message + " Your Score is : " + score;
+
+    }
+
+
+});
