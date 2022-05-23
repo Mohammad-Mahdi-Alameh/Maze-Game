@@ -3,7 +3,7 @@ Game Lab CSS file
 You don't need to download or edit this file.
 */
 
-h1, h2 {
+h1, h2 , h3 {
 	text-align: center;
 }
 
@@ -109,4 +109,16 @@ neighboring elements.  Necessary to avoid giving ids to the boundary divs
 	left: 200px;
 	height: 150px;
 	width: 98px;
+}
+
+.timeStats{
+	display: flex;
+	justify-content: center;
+}
+
+.timeView{
+
+	text-align: center;
+	padding: 0px 50px;
+	/*flex:10%;*/
 }
