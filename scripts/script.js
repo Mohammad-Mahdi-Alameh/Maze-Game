@@ -13,8 +13,6 @@ window.addEventListener("load", function(){
 
     let status = document.getElementById("status");
 
-    let live = document.getElementById("live");
-
     let last = document.getElementById("last");
 
     let best = document.getElementById("best");
@@ -37,8 +35,8 @@ window.addEventListener("load", function(){
 
     reset_button.style.padding="10px";
 
-    var first_time = 0 , score = 0 , interval , best_time ,tens = 0 , seconds= 0 ;  //global variables
-    var last_seconds,last_tens;
+    var i,win_counter = 0 , score = 0 , interval , last_seconds , last_tens ,tens = 0 , seconds= 0 ;  //global variables
+
 
 
 /////Main
@@ -92,8 +90,6 @@ window.addEventListener("load", function(){
 
         startStopWatch();
 
-        first_time++;
-
     }
 
     function win() {
@@ -108,11 +104,15 @@ window.addEventListener("load", function(){
 
         deactivateCheatDetector();
 
+        win_counter++;
+
         checkBestTime();
 
         changeLastTime();
 
         resetStopWatch();
+
+
     }
 
     ///reset wall color back to normal
@@ -246,6 +246,7 @@ window.addEventListener("load", function(){
 
 
         clearInterval(interval);
+
         interval = setInterval(launch, 10);
 
     }
@@ -253,12 +254,15 @@ window.addEventListener("load", function(){
     function resetStopWatch() {
 
         clearInterval(interval);
+        // last_tens=tens;
+        // last_seconds=seconds;
         tens = "00";
+
         seconds = "00";
+
         tens_span.innerHTML = tens;
+
         seconds_span.innerHTML = seconds;
-
-
 
     }
 
@@ -268,30 +272,38 @@ window.addEventListener("load", function(){
         tens++;
 
         if(tens <= 9){
+
             tens_span.innerHTML = "0" + tens;
         }
 
         if (tens > 9){
+
             tens_span.innerHTML = tens;
 
         }
 
         if (tens > 99) {
+
             seconds++;
+
             seconds_span.innerHTML = "0" + seconds;
+
             tens = 0;
+
             tens_span.innerHTML = "0" + 0;
         }
 
         if (seconds > 9){
+
             seconds_span.innerHTML =""+seconds;
+
         }
 
     }
 
     function checkBestTime(){
 
-      if(first_time === 1)
+      if(win_counter === 1)
 
           best.innerHTML = "<strong>Best</strong><br>" + seconds + " : " + tens;
 
@@ -301,7 +313,7 @@ window.addEventListener("load", function(){
 
               best.innerHTML = "<strong>Best</strong><br>" + seconds + " : " + tens;
 
-           else if (last_seconds === seconds){
+          else if (last_seconds === seconds){
 
               if (last_tens > tens)
 
@@ -313,11 +325,12 @@ window.addEventListener("load", function(){
 
     function changeLastTime(){
 
-
         clearInterval(interval);
 
         last.innerHTML ="<strong>Last</strong><br>"+ seconds +" : "+tens;
+
         last_seconds=seconds;
+
         last_tens=tens;
 
     }
