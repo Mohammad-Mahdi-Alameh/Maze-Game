@@ -91,6 +91,8 @@ window.addEventListener("load", function(){
 
         activateResetButton();
 
+        resetStopWatch();
+
         startStopWatch();
     }
 
@@ -106,9 +108,9 @@ window.addEventListener("load", function(){
 
         deactivateCheatDetector();
 
-        resetStopWatch();
-
         changeLastTime();
+
+        resetStopWatch();
 
         checkBestTime();
 
@@ -193,6 +195,8 @@ window.addEventListener("load", function(){
 
         cheating_detector_div.addEventListener("mouseleave", CheatDetected);
 
+
+
     }
 
     function deactivateCheatDetector() {
@@ -213,6 +217,8 @@ window.addEventListener("load", function(){
         deactivateEndDiv();
 
         deactivateResetButton();
+
+        resetStopWatch();
 
         endGame();
 
@@ -247,12 +253,17 @@ window.addEventListener("load", function(){
 
     }
 
-    // function resetStopWatch() {
-    //
-    //     live.innerHTML="<strong>Live</strong><br> 00 : 000"
-    //
-    //
-    // }
+    function resetStopWatch() {
+
+        clearInterval(interval);
+        tens = "00";
+        seconds = "00";
+        tens_span.innerHTML = tens;
+        seconds_span.innerHTML = seconds;
+
+
+
+    }
 
 
     function launch() {
@@ -291,8 +302,7 @@ window.addEventListener("load", function(){
     //
     // }
 
-    // function changeLastTime(){
-    //
-    // }
+
+
 
 });
