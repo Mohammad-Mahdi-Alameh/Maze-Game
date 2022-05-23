@@ -15,6 +15,7 @@ window.addEventListener("load", function(){
 
     let reset_button = document.createElement("button");
 
+
     reset_button.innerHTML = "Reset Score";
 
     document.body.appendChild(reset_button);
@@ -26,9 +27,10 @@ window.addEventListener("load", function(){
     reset_button.style.transform = "translateX(-50%)";
 
 
+
     let i;
 
-    var score = 0;  //global variables
+    var score = 0 , live_time , best_time , last_time ;  //global variables
 
 
 /////Main
@@ -78,6 +80,7 @@ window.addEventListener("load", function(){
 
         activateResetButton();
 
+        startStopWatch();
     }
 
     function win() {
@@ -91,6 +94,12 @@ window.addEventListener("load", function(){
         deactivateEndDiv();
 
         deactivateCheatDetector();
+
+        resetStopWatch();
+
+        changeLastTime();
+
+        checkBestTime();
 
     }
 
@@ -151,6 +160,8 @@ window.addEventListener("load", function(){
         deactivateEndDiv();
 
         deactivateCheatDetector();
+
+        resetStopWatch();
 
     }
 
@@ -213,6 +224,22 @@ window.addEventListener("load", function(){
         score = 0;
 
         status.innerHTML = "Your score is reset to 0 !";
+
+    }
+
+    function startStopWatch() {
+
+    }
+
+    function resetStopWatch() {
+
+    }
+
+    function checkBestTime(){
+
+    }
+
+    function changeLastTime(){
 
     }
 
