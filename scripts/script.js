@@ -13,8 +13,17 @@ window.addEventListener("load", function(){
 
     let status = document.getElementById("status");
 
-    let reset_button = document.createElement("button");
+    let live = document.getElementById("live");
 
+    let last = document.getElementById("last");
+
+    let best = document.getElementById("best");
+
+    var tens_span  = document.getElementById("tens");
+
+    var seconds_span = document.getElementById("seconds");
+
+    let reset_button = document.createElement("button");
 
     reset_button.innerHTML = "Reset Score";
 
@@ -26,11 +35,13 @@ window.addEventListener("load", function(){
 
     reset_button.style.transform = "translateX(-50%)";
 
+    reset_button.style.padding="10px";
+
 
 
     let i;
 
-    var score = 0 , live_time , best_time , last_time ;  //global variables
+    var score = 0 , interval , best_time , last_time ,tens = 0 , seconds= 0 ;  //global variables
 
 
 /////Main
@@ -227,20 +238,61 @@ window.addEventListener("load", function(){
 
     }
 
+
     function startStopWatch() {
 
-    }
 
-    function resetStopWatch() {
-
-    }
-
-    function checkBestTime(){
+        clearInterval(interval);
+        interval = setInterval(launch, 10);
 
     }
 
-    function changeLastTime(){
+    // function resetStopWatch() {
+    //
+    //     live.innerHTML="<strong>Live</strong><br> 00 : 000"
+    //
+    //
+    // }
+
+
+    function launch() {
+
+        tens++;
+
+        if(tens <= 9){
+            tens_span.innerHTML = "0" + tens;
+        }
+
+        if (tens > 9){
+            tens_span.innerHTML = tens;
+
+        }
+
+        if (tens > 99) {
+            seconds++;
+            seconds_span.innerHTML = "0" + seconds;
+            tens = 0;
+            tens_span.innerHTML = "0" + 0;
+        }
+
+        if (seconds > 9){
+            seconds_span.innerHTML =""+seconds;
+        }
 
     }
+
+
+
+
+    // function checkBestTime(){
+    //   if(first_time ===1)
+    //       best_time=last_time;
+    //       best.innerHTML=best_time;
+    //
+    // }
+
+    // function changeLastTime(){
+    //
+    // }
 
 });

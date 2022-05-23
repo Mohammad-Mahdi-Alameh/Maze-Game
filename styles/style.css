@@ -113,12 +113,13 @@ neighboring elements.  Necessary to avoid giving ids to the boundary divs
 
 .timeStats{
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
+	width: 50%;
+	margin:auto;
 }
 
 .timeView{
-
+	flex: 1%;
 	text-align: center;
-	padding: 0px 50px;
-	/*flex:10%;*/
+
 }
