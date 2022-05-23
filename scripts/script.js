@@ -37,11 +37,8 @@ window.addEventListener("load", function(){
 
     reset_button.style.padding="10px";
 
-
-
-    let i;
-
-    var score = 0 , interval , best_time , last_time ,tens = 0 , seconds= 0 ;  //global variables
+    var first_time = 0 , score = 0 , interval , best_time ,tens = 0 , seconds= 0 ;  //global variables
+    var last_seconds,last_tens;
 
 
 /////Main
@@ -94,6 +91,9 @@ window.addEventListener("load", function(){
         resetStopWatch();
 
         startStopWatch();
+
+        first_time++;
+
     }
 
     function win() {
@@ -108,12 +108,11 @@ window.addEventListener("load", function(){
 
         deactivateCheatDetector();
 
+        checkBestTime();
+
         changeLastTime();
 
         resetStopWatch();
-
-        checkBestTime();
-
     }
 
     ///reset wall color back to normal
@@ -194,8 +193,6 @@ window.addEventListener("load", function(){
     function activateCheatDetector() {
 
         cheating_detector_div.addEventListener("mouseleave", CheatDetected);
-
-
 
     }
 
@@ -292,21 +289,36 @@ window.addEventListener("load", function(){
 
     }
 
+    function checkBestTime(){
 
+      if(first_time === 1)
 
+          best.innerHTML = "<strong>Best</strong><br>" + seconds + " : " + tens;
 
-    // function checkBestTime(){
-    //   if(first_time ===1)
-    //       best_time=last_time;
-    //       best.innerHTML=best_time;
-    //
-    // }
+      else
 
-    function changeLastTime(){
+          if (last_seconds > seconds)
 
-        clearInterval(interval);
-        last.innerHTML ="<strong>Last</strong><br>"+ seconds +" : "+tens;        t
+              best.innerHTML = "<strong>Best</strong><br>" + seconds + " : " + tens;
+
+           else if (last_seconds === seconds){
+
+              if (last_tens > tens)
+
+                  best.innerHTML = "<strong>Best</strong><br>" + seconds + " : " + tens;
+
+          }
 
     }
 
+    function changeLastTime(){
+
+
+        clearInterval(interval);
+
+        last.innerHTML ="<strong>Last</strong><br>"+ seconds +" : "+tens;
+        last_seconds=seconds;
+        last_tens=tens;
+
+    }
 });
