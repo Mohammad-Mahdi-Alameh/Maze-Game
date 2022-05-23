@@ -302,7 +302,11 @@ window.addEventListener("load", function(){
     //
     // }
 
+    function changeLastTime(){
 
+        clearInterval(interval);
+        last.innerHTML ="<strong>Last</strong><br>"+ seconds +" : "+tens;        t
 
+    }
 
 });
